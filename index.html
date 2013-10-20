@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+    #main {
+        width: 640px;
+        height: 360px;
+        background: url(./background.jpg);
+    }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -55,17 +62,16 @@
     </div><!-- /.navbar-collapse -->
 </nav>
 
-<div id="main"></div>
-<div id="scores"></div>
-
 <div class="row">
-    <div class="col-md-2">Hello!</div>
-    <div class="col-md-10">World!</div>
+    <div class="col-md-1"></div>
+    <div class="col-md-11">New World!</div>
 </div>
 
 <div class="row">
     <div class="col-md-12">
-        <canvas id="game"></canvas>
+        <div id="main">
+            <canvas id="game"></canvas>
+        </div>
     </div>
 </div>
 

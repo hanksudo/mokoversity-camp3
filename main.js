@@ -6,14 +6,14 @@ var gameModule = (function() {
         var canvas = document.getElementById('game');
         var ctx = canvas.getContext('2d');
 
-        var ballX = Math.floor(Math.random() * 250);
-        var ballY = Math.floor(Math.random() * 200);
-        var ballR = Math.floor(Math.random() * 100);
+        var ballX = Math.floor(Math.random() * 500);
+        var ballY = Math.floor(Math.random() * 300);
+        var ballR = Math.floor(Math.random() * 120);
 
-        canvas.width = 480;
-        canvas.here = 320;
+        canvas.width = 640;
+        canvas.height = 360;
 
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'green';
         ctx.beginPath();
         ctx.arc(ballX, ballY, ballR, 0, Math.PI * 2, true);
         ctx.fill();
