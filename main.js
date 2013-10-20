@@ -1,4 +1,8 @@
-var gameModule = (function() {
+/*jslint browser: true, devel: true, closure: true */
+
+var gameModule = (function () {
+
+    "use strict";
 
     var counter = 0,
         ballX,
@@ -9,20 +13,19 @@ var gameModule = (function() {
 
     function touchEvent(evt) {
         var x = evt.clientX,
-            y = evt.clientY;
+            y = evt.clientY,
+            tmp = (ballX - x) * (ballX - x) + (ballY - y) * (ballY - y);
 
         console.log('Clicked ' + x + ", " + y);
 
-        var tmp = (ballX - x) * (ballX - x) + (ballY - y) * (ballY - y);
         if (tmp < ballR * ballR) {
             scores += 10;
             console.log("Hit ! Good. Scores: " + scores);
         }
     }
 
-    function start() {
-        document.getElementById('main').addEventListener('click', touchEvent, false);
-        startGame();
+    function gameOver() {
+        console.log('Game Over!');
     }
 
     function startGame() {
@@ -44,19 +47,20 @@ var gameModule = (function() {
         if (counter >= 9) {
             gameOver();
         } else {
-            counter++;
+            counter = counter + 1;
             console.log('Counter: ' + counter);
             setTimeout(startGame, 1000);
         }
     }
 
-    function gameOver () {
-        console.log('Game Over!');
+    function start() {
+        document.getElementById('main').addEventListener('click', touchEvent, false);
+        startGame();
     }
 
     return {
         start: start
-    }
-}) ();
+    };
+}(document));
 
 gameModule.start();
