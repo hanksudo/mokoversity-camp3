@@ -4,7 +4,8 @@ var gameModule = (function() {
         ballX,
         ballY,
         ballR,
-        colors = ['#ff0000', '#0000ff', 'green'];
+        colors = ['#ff0000', '#0000ff', 'green'],
+        scores = 0;
 
     function touchEvent(evt) {
         var x = evt.clientX,
@@ -13,7 +14,10 @@ var gameModule = (function() {
         console.log('Clicked ' + x + ", " + y);
 
         var tmp = (ballX - x) * (ballX - x) + (ballY - y) * (ballY - y);
-        if (tmp < ballR * ballR) console.log("Hit ! Good.");
+        if (tmp < ballR * ballR) {
+            scores += 10;
+            console.log("Hit ! Good. Scores: " + scores);
+        }
     }
 
     function start() {
